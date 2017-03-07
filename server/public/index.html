@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Express Take 2</title>
-    <script src="vendors/jquery.js" charset="utf-8"></script>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
   </head>
-  <body>
-    <h1>Express Yourself Again</h1>
-    <h2>The first fish is:<span id="firstFishy"></span></h2>
-    <input id="newFishName">
-    <button id="newFishButton">Click here to add the fish!</button>
-    <ul id="fishTank">
+  <body ng-app="FishApp" ng-controller="FishController as fc">
+    <h1>Angler</h1>
+    <h2>The first fish is: {{fc.firstFish}}</h2>
+    <input ng-model="fc.newFish.name">
+    <button ng-click="fc.addNewFish()">Click here to add the fish!</button>
+    <ul>
+      <li ng-repeat="fish in fc.fishList">{{fish.name}}</li>
     </ul>
   </body>
 </html>
